@@ -1,0 +1,17 @@
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\bin\x86\Debug\Content\pacmanBackround.xnb
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\bin\x86\Debug\Pacman.exe
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\bin\x86\Debug\Pacman.pdb
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\bin\x86\Debug\Microsoft.Xna.Framework.dll
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\bin\x86\Debug\Microsoft.Xna.Framework.xml
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\obj\x86\Debug\Pacman.csprojResolveAssemblyReference.cache
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\obj\x86\Debug\Pacman.exe
+C:\Users\147359\Desktop\Pacman\Pacman\Pacman\obj\x86\Debug\Pacman.pdb

@@ -18,11 +18,16 @@ namespace Pacman
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Rectangle bgR;
+        Texture2D bgT;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            graphics.PreferredBackBufferHeight = 1000;
+            graphics.PreferredBackBufferWidth = 813;
         }
 
         /// <summary>
@@ -33,8 +38,9 @@ namespace Pacman
         /// </summary>
         protected override void Initialize()
         {
+            
             // TODO: Add your initialization logic here
-
+            bgR = new Rectangle(0, 115, 813, 736);
             base.Initialize();
         }
 
@@ -46,6 +52,7 @@ namespace Pacman
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            bgT = this.Content.Load<Texture2D>("pacmanBackround");
 
             // TODO: use this.Content to load your game content here
         }
@@ -81,8 +88,10 @@ namespace Pacman
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            GraphicsDevice.Clear(Color.Black);
+            spriteBatch.Begin();
+            spriteBatch.Draw(bgT, bgR, Color.White);
+            spriteBatch.End();
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
