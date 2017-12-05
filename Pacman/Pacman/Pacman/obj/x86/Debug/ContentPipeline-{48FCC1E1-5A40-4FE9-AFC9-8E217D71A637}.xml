@@ -2,13 +2,67 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>pacmanBackround.png</Source>
-      <Name>pacmanBackround</Name>
+      <Source>blinky.png</Source>
+      <Name>blinky</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\147359\Desktop\Pacman\Pacman\Pacman\bin\x86\Debug\Content\pacmanBackround.xnb</Output>
-      <Time>2017-11-29T09:49:52.8590875-06:00</Time>
+      <Output>C:\Users\145371\Downloads\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\blinky.xnb</Output>
+      <Time>2017-12-01T09:14:38-06:00</Time>
+    </Item>
+    <Item>
+      <Source>pacdot.png</Source>
+      <Name>pacdot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\145371\Downloads\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\pacdot.xnb</Output>
+      <Time>2017-12-01T09:14:38-06:00</Time>
+    </Item>
+    <Item>
+      <Source>pacman.png</Source>
+      <Name>pacman</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\145371\Downloads\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\pacman.xnb</Output>
+      <Time>2017-12-01T09:14:38-06:00</Time>
+    </Item>
+    <Item>
+      <Source>spritesheet.png</Source>
+      <Name>spritesheet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\145371\Downloads\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\spritesheet.xnb</Output>
+      <Time>2017-12-01T09:14:38-06:00</Time>
+    </Item>
+    <Item>
+      <Source>wallbox.png</Source>
+      <Name>wallbox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\145371\Downloads\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\wallbox.xnb</Output>
+      <Time>2017-12-01T09:22:18-06:00</Time>
+    </Item>
+    <Item>
+      <Source>gru.jpg</Source>
+      <Name>gru</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\145371\Downloads\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\gru.xnb</Output>
+      <Time>2017-12-01T10:03:28-06:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\145371\Downloads\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2017-12-01T10:03:44-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -17,10 +71,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\147359\Desktop\Pacman\Pacman\PacmanContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\147359\Desktop\Pacman\Pacman\Pacman\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\147359\Desktop\Pacman\Pacman\Pacman\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\147359\Desktop\Pacman\Pacman\Pacman\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\145371\Downloads\Pacman\Pacman\Pacman\PacmanContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\145371\Downloads\Pacman\Pacman\Pacman\Pacman\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\145371\Downloads\Pacman\Pacman\Pacman\Pacman\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\145371\Downloads\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
