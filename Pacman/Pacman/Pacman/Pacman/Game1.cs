@@ -25,17 +25,25 @@ namespace Pacman
         string[,] strgrid;
         KeyboardState oldKb = Keyboard.GetState();
 
-        readonly int[] GRID_SIZE = { 28, 31 };
-        const int X = 0, Y = 1;
+        readonly Rectangle PACMAN = new Rectangle(0, 36, 17, 17);
+        readonly Rectangle SMALL_PELLET = new Rectangle(35, 54, 8, 8);
+        readonly Rectangle LARGE_PELLET = new Rectangle(104, 68, 20, 20);
 
-        int[] pacmanPos = new int[] { 0, 0 };
+        readonly int[] GRID_SIZE = { 28, 36 };
+        const int BLOCK_SIZE = 20;
+        const int X = 0, Y = 1;
+        const int UP = 0, RIGHT = 1, DOWN = 2, LEFT = 3;
+
+        int[] pacmanPos = new int[] { 14, 26 };
+        bool[] dirctPacman = new bool[] { false, false, false, false };
+        int timer = 0;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferHeight = 620;
-            graphics.PreferredBackBufferWidth = 560;
+            graphics.PreferredBackBufferHeight = GRID_SIZE[Y] * BLOCK_SIZE;
+            graphics.PreferredBackBufferWidth = GRID_SIZE[X] * BLOCK_SIZE;
         }
 
         /// <summary>
@@ -49,41 +57,54 @@ namespace Pacman
             this.IsMouseVisible = true;
             // TODO: Add your initialization logic here
             gameGrid = new Rectangle[GRID_SIZE[X], GRID_SIZE[Y]];
+            restGrid();
+            base.Initialize();
+        }
+
+        private void restGrid()
+        {
             strgrid = new string[,]
             {
+                {"c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c"},
+                {"c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c"},
+                {"c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c"},
+
                 {"w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"},
-                {"w","0","0","0","0","0","0","0","0","0","0","0","0","w","w","0","0","0","0","0","0","0","0","0","0","0","0","w"},
-                {"w","0","w","w","w","w","0","w","w","w","w","w","0","w","w","0","w","w","w","w","w","0","w","w","w","w","0","w"},
-                {"w","0","w","w","w","w","0","w","w","w","w","w","0","w","w","0","w","w","w","w","w","0","w","w","w","w","0","w"},
-                {"w","0","w","w","w","w","0","w","w","w","w","w","0","w","w","0","w","w","w","w","w","0","w","w","w","w","0","w"},
-                {"w","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","w"},
-                {"w","0","w","w","w","w","0","w","w","0","w","w","w","w","w","w","w","w","0","w","w","0","w","w","w","w","0","w"},
-                {"w","0","w","w","w","w","0","w","w","0","w","w","w","w","w","w","w","w","0","w","w","0","w","w","w","w","0","w"},
-                {"w","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","w"},
-                {"w","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","w"},
-                {"0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"},
-                {"0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"},
-                {"0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"},
-                {"0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"},
-                {"0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"},
-                {"w","w","w","w","w","w","0","w","w","0","w","0","0","0","0","0","0","w","0","w","w","0","w","w","w","w","w","w"},
-                {"0","0","0","0","0","w","0","w","w","0","w","w","w","w","w","w","w","w","0","w","w","0","w","0","0","0","0","0"},
-                {"0","0","0","0","0","w","0","w","w","0","0","0","0","0","0","0","0","0","0","w","w","0","w","0","0","0","0","0"},
-                {"0","0","0","0","0","w","0","w","w","0","w","w","w","w","w","w","w","w","0","w","w","0","w","0","0","0","0","0"},
-                {"w","w","w","w","w","w","0","w","w","0","w","w","w","w","w","w","w","w","0","w","w","0","w","w","w","w","w","w"},
-                {"w","0","0","0","0","0","0","0","0","0","0","0","0","w","w","0","0","0","0","0","0","0","0","0","0","0","0","w"},
-                {"w","0","w","w","w","w","0","w","w","w","w","w","0","w","w","0","w","w","w","w","w","0","w","w","w","w","0","w"},
-                {"w","0","w","w","w","w","0","w","w","w","w","w","0","w","w","0","w","w","w","w","w","0","w","w","w","w","0","w"},
-                {"w","0","0","0","w","w","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","w","w","0","0","0","w"},
-                {"w","w","w","0","w","w","0","w","w","0","w","w","w","w","w","w","w","w","0","w","w","0","w","w","0","w","w","w"},
-                {"w","w","w","0","w","w","0","w","w","0","w","w","w","w","w","w","w","w","0","w","w","0","w","w","0","w","w","w"},
-                {"w","0","0","0","0","0","0","w","w","0","0","0","0","w","w","0","0","0","0","w","w","0","0","0","0","0","0","w"},
-                {"w","0","w","w","w","w","w","w","w","w","w","w","0","w","w","0","w","w","w","w","w","w","w","w","w","w","0","w"},
-                {"w","0","w","w","w","w","w","w","w","w","w","w","0","w","w","0","w","w","w","w","w","w","w","w","w","w","0","w"},
-                {"w","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","w"},
+                {"w","p","p","p","p","p","p","p","p","p","p","p","p","w","w","p","p","p","p","p","p","p","p","p","p","p","p","w"},
+                {"w","p","w","w","w","w","p","w","w","w","w","w","p","w","w","p","w","w","w","w","w","p","w","w","w","w","p","w"},
+                {"w","P","w","w","w","w","p","w","w","w","w","w","p","w","w","p","w","w","w","w","w","p","w","w","w","w","P","w"},
+                {"w","p","w","w","w","w","p","w","w","w","w","w","p","w","w","p","w","w","w","w","w","p","w","w","w","w","p","w"},
+                {"w","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","w"},
+                {"w","p","w","w","w","w","p","w","w","p","w","w","w","w","w","w","w","w","p","w","w","p","w","w","w","w","p","w"},
+                {"w","p","w","w","w","w","p","w","w","p","w","w","w","w","w","w","w","w","p","w","w","p","w","w","w","w","p","w"},
+                {"w","p","p","p","p","p","p","w","w","p","p","p","p","w","w","p","p","p","p","w","w","p","p","p","p","p","p","w"},
+                {"w","w","w","w","w","w","p","w","w","w","w","w","c","w","w","c","w","w","w","w","w","p","w","w","w","w","w","w"},
+                {"c","c","c","c","c","w","p","w","w","w","w","w","c","w","w","c","w","w","w","w","w","p","w","c","c","c","c","c"},
+                {"c","c","c","c","c","w","p","w","w","c","c","c","c","c","c","c","c","c","c","w","w","p","w","c","c","c","c","c"},
+                {"c","c","c","c","c","w","p","w","w","c","w","w","w","0","0","w","w","w","c","w","w","p","w","c","c","c","c","c"},
+                {"w","w","w","w","w","w","p","w","w","c","w","c","c","c","c","c","c","w","c","w","w","p","w","w","w","w","w","w"},
+                {"c","c","c","c","c","c","p","c","c","c","w","c","c","c","c","c","c","w","c","c","c","p","c","c","c","c","c","c"},
+                {"w","w","w","w","w","w","p","w","w","c","w","c","c","c","c","c","c","w","c","w","w","p","w","w","w","w","w","w"},
+                {"c","c","c","c","c","w","p","w","w","c","w","w","w","w","w","w","w","w","c","w","w","p","w","c","c","c","c","c"},
+                {"c","c","c","c","c","w","p","w","w","c","c","c","c","c","c","c","c","c","c","w","w","p","w","c","c","c","c","c"},
+                {"c","c","c","c","c","w","p","w","w","c","w","w","w","w","w","w","w","w","c","w","w","p","w","c","c","c","c","c"},
+                {"w","w","w","w","w","w","p","w","w","c","w","w","w","w","w","w","w","w","c","w","w","p","w","w","w","w","w","w"},
+                {"w","p","p","p","p","p","p","p","p","p","p","p","p","w","w","p","p","p","p","p","p","p","p","p","p","p","p","w"},
+                {"w","p","w","w","w","w","p","w","w","w","w","w","p","w","w","p","w","w","w","w","w","p","w","w","w","w","p","w"},
+                {"w","p","w","w","w","w","p","w","w","w","w","w","p","w","w","p","w","w","w","w","w","p","w","w","w","w","p","w"},
+                {"w","P","p","p","w","w","p","p","p","p","p","p","p","c","c","p","p","p","p","p","p","p","w","w","p","p","P","w"},
+                {"w","w","w","p","w","w","p","w","w","p","w","w","w","w","w","w","w","w","p","w","w","p","w","w","p","w","w","w"},
+                {"w","w","w","p","w","w","p","w","w","p","w","w","w","w","w","w","w","w","p","w","w","p","w","w","p","w","w","w"},
+                {"w","p","p","p","p","p","p","w","w","p","p","p","p","w","w","p","p","p","p","w","w","p","p","p","p","p","p","w"},
+                {"w","p","w","w","w","w","w","w","w","w","w","w","p","w","w","p","w","w","w","w","w","w","w","w","w","w","p","w"},
+                {"w","p","w","w","w","w","w","w","w","w","w","w","p","w","w","p","w","w","w","w","w","w","w","w","w","w","p","w"},
+                {"w","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","p","w"},
                 {"w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"},
+
+                {"c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c"},
+                {"c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c"},
             };
-            base.Initialize();
+            strgrid[pacmanPos[Y], pacmanPos[X]] = "1";
         }
 
         /// <summary>
@@ -94,12 +115,11 @@ namespace Pacman
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            int Gridsize = 20;
 
             for (int x = 0; x < GRID_SIZE[X]; x++)
                 for (int y = 0; y < GRID_SIZE[Y]; y++)
                 {
-                    gameGrid[x, y] = new Rectangle(x * Gridsize, y * Gridsize, Gridsize, Gridsize);
+                    gameGrid[x, y] = new Rectangle(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
                 }
             // TODO: use this.Content to load your game content here
             spritesheet = this.Content.Load<Texture2D>("spritesheet");
@@ -121,49 +141,104 @@ namespace Pacman
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            //KeyboardState kb = Keyboard.GetState();
-            //// Allows the game to exit
+            KeyboardState kb = Keyboard.GetState();
+            // Allows the game to exit
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
-            //// TODO: Add your update logic here
+            // TODO: Add your update logic here
+            timer++;
 
-            //if (kb.IsKeyDown(Keys.Up) &&
-            //    !(oldKb.IsKeyDown(Keys.Up)))
-            //    pacmanPos[0] -= 1;
-            //else if (kb.IsKeyDown(Keys.Down) &&
-            //    !(oldKb.IsKeyDown(Keys.Down)))
-            //    pacmanPos[0] += 1;
+            if (kb.IsKeyDown(Keys.Up) &&
+                !(oldKb.IsKeyDown(Keys.Up)))
+            {
+                for (int i = 0; i < dirctPacman.Length; i++)
+                    dirctPacman[i] = false;
+                dirctPacman[UP] = true;
+            }
+            else if (kb.IsKeyDown(Keys.Down) &&
+                !(oldKb.IsKeyDown(Keys.Down)))
+            {
+                for (int i = 0; i < dirctPacman.Length; i++)
+                    dirctPacman[i] = false;
+                dirctPacman[DOWN] = true;
+            }
 
-            //if (kb.IsKeyDown(Keys.Right) &&
-            //    !(oldKb.IsKeyDown(Keys.Right)))
-            //    pacmanPos[1] += 1;
-            //else if (kb.IsKeyDown(Keys.Left) &&
-            //    !(oldKb.IsKeyDown(Keys.Left)))
-            //    pacmanPos[1] -= 1;
+            if (kb.IsKeyDown(Keys.Right) &&
+                !(oldKb.IsKeyDown(Keys.Right)))
+            {
+                for (int i = 0; i < dirctPacman.Length; i++)
+                    dirctPacman[i] = false;
+                dirctPacman[RIGHT] = true;
+            }
+            else if (kb.IsKeyDown(Keys.Left) &&
+                !(oldKb.IsKeyDown(Keys.Left)))
+            {
+                for (int i = 0; i < dirctPacman.Length; i++)
+                    dirctPacman[i] = false;
+                dirctPacman[LEFT] = true;
+            }
 
-            //if (pacmanPos[0] > 9)
-            //    pacmanPos[0] = 9;
-            //else if (pacmanPos[0] < 0)
-            //    pacmanPos[0] = 0;
+            if ((timer / 60.0) % 0.25 == 0)
+                if (dirctPacman[UP])
+                    pacmanPos[Y]--;
+                else if (dirctPacman[RIGHT])
+                    pacmanPos[X]++;
+                else if (dirctPacman[DOWN])
+                    pacmanPos[Y]++;
+                else if (dirctPacman[LEFT])
+                    pacmanPos[X]--;
 
-            //if (pacmanPos[1] > 9)
-            //    pacmanPos[1] = 9;
-            //else if (pacmanPos[1] < 0)
-            //    pacmanPos[1] = 0;
+            if (pacmanPos[Y] == 17 && pacmanPos[X] == -1)
+                pacmanPos[X] = 27;
+            else if (pacmanPos[Y] == 17 && pacmanPos[X] == 28)
+                pacmanPos[X] = 0;
+            else
+                checkHitWall();
 
-            //for (int y = 0; y < 31; y++)
-            //{
-            //    for (int x = 0; x < 28; x++)
-            //    {
-            //        strgrid[x, y] = "0";
-            //    }
-            //}
+            Console.WriteLine("PACMAN " + pacmanPos[X] + " " + pacmanPos[Y]);
 
-            //strgrid[pacmanPos[0], pacmanPos[1]] = "1";
+            restGrid();
 
-            //oldKb = kb;
+            oldKb = kb;
             base.Update(gameTime);
+        }
+
+        private void checkHitWall()
+        {
+            if (dirctPacman[UP])
+            {
+                if (strgrid[pacmanPos[Y], pacmanPos[X]] == "w")
+                {
+                    pacmanPos[Y]++;
+                    dirctPacman[UP] = false;
+                }
+            }
+            else if (dirctPacman[RIGHT])
+            {
+                if (strgrid[pacmanPos[Y], pacmanPos[X]] == "w")
+                {
+                    pacmanPos[X]--;
+                    dirctPacman[RIGHT] = false;
+                }
+            }
+            else if (dirctPacman[DOWN])
+            {
+                if (strgrid[pacmanPos[Y], pacmanPos[X]] == "w" ||
+                    strgrid[pacmanPos[Y], pacmanPos[X]] == "0")
+                {
+                    pacmanPos[Y]--;
+                    dirctPacman[DOWN] = false;
+                }
+            }
+            else if (dirctPacman[LEFT])
+            {
+                if (strgrid[pacmanPos[Y], pacmanPos[X]] == "w")
+                {
+                    pacmanPos[X]++;
+                    dirctPacman[LEFT] = false;
+                }
+            }
         }
 
         /// <summary>
@@ -186,8 +261,12 @@ namespace Pacman
                         spriteBatch.Draw(t, gameGrid[x, y], Color.Blue);
                     else if (strgrid[y, x] == "c")
                         spriteBatch.Draw(t, gameGrid[x, y], Color.Black);
+                    else if (strgrid[y, x] == "P")
+                        spriteBatch.Draw(spritesheet, gameGrid[x, y], SMALL_PELLET, Color.White);
                     else if (strgrid[y, x] == "p")
-                        spriteBatch.Draw(t, gameGrid[x, y], Color.Black);
+                        spriteBatch.Draw(spritesheet, gameGrid[x, y], LARGE_PELLET, Color.White);
+                    else if (strgrid[y, x] == "1")
+                        spriteBatch.Draw(spritesheet, gameGrid[x, y], PACMAN, Color.White);
                     else
                         spriteBatch.Draw(t, gameGrid[x, y], Color.LightPink);
                 }
