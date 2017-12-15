@@ -91,9 +91,6 @@ namespace Pacman
             // TODO: Add your initialization logic here
             gameGrid = new Rectangle[GRID_SIZE[X], GRID_SIZE[Y]];
 
-            Console.WriteLine(intersects[0, X]);
-            Console.WriteLine(intersects[0, Y]);
-
             restGrid();
             base.Initialize();
         }
