@@ -27,13 +27,25 @@ namespace Pacman
         KeyboardState oldKb = Keyboard.GetState();
 
         Rectangle PACMAN = new Rectangle(0, 36, 17, 17);
-        Rectangle BLINKY = new Rectangle(49, 18, 14, 14);
-        Rectangle CLYDE = new Rectangle(84, 48, 14, 14);
-        Rectangle INKY = new Rectangle(0, 99, 14, 14);
-        Rectangle PINKY = new Rectangle(70, 63, 14, 14);
+        readonly Rectangle BLINKY = new Rectangle(49, 18, 14, 14);
+        readonly Rectangle CLYDE = new Rectangle(84, 48, 14, 14);
+        readonly Rectangle INKY = new Rectangle(0, 99, 14, 14);
+        readonly Rectangle PINKY = new Rectangle(70, 63, 14, 14);
 
         readonly Rectangle SMALL_PELLET = new Rectangle(35, 54, 8, 8);
         readonly Rectangle LARGE_PELLET = new Rectangle(104, 68, 20, 20);
+
+        readonly int[,] intersects = new int[,]
+            {
+                {1, 4}, {6, 4}, {12, 4}, {15, 4}, {21, 4}, {26, 4}, {12, 8},
+                {15, 8}, {26, 8}, {21, 8}, {18, 8}, {9, 8}, {6, 8}, {1, 8}, {1, 11},
+                {6, 11}, {9, 11}, {12, 11}, {15, 11}, {18, 11}, {21, 11}, {26, 11}, {12, 14},
+                {15, 14}, {18, 17}, {9, 17}, {6, 17}, {21, 17}, {18, 20}, {9, 20}, {9, 23},
+                {6, 23}, {1, 23}, {12, 23}, {15, 23}, {18, 23}, {21, 23}, {26, 23}, {26, 26},
+                {24, 26}, {21, 26}, {18, 26}, {15, 26}, {12, 26}, {9, 26}, {6, 26}, {1, 26},
+                {3, 26}, {3, 29}, {1, 29}, {6, 29}, {9, 29}, {12, 29}, {15, 29}, {18, 29},
+                {21, 29}, {24, 29}, {26, 29}, {26, 32}, {15, 32}, {12, 32}, {1, 32}
+            };
 
         int[,] pellets = new int[244, 2];
         int index = 0;
@@ -78,6 +90,9 @@ namespace Pacman
             this.IsMouseVisible = true;
             // TODO: Add your initialization logic here
             gameGrid = new Rectangle[GRID_SIZE[X], GRID_SIZE[Y]];
+
+            Console.WriteLine(intersects[0, X]);
+            Console.WriteLine(intersects[0, Y]);
 
             restGrid();
             base.Initialize();
@@ -124,7 +139,7 @@ namespace Pacman
                 {"w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"},
 
                 {"c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c"},
-                {"c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c"},
+                {"c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c","c"}
             };
 
             for (int i = 0; i < index; i++)
@@ -342,6 +357,8 @@ namespace Pacman
 
             checkGhostHitWall();
             checkHitPellet();
+
+            //Console.WriteLine("PACMAN: " + pacmanPos[X] + " " + pacmanPos[Y]);
 
             restGrid();
 
