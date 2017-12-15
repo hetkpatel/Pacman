@@ -15,3 +15,4 @@ C:\Users\Temp Admin\Desktop\GitHubProjects\Pacman\Pacman\Pacman\Pacman\Pacman\ob
 C:\Users\Temp Admin\Desktop\GitHubProjects\Pacman\Pacman\Pacman\Pacman\Pacman\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Temp Admin\Desktop\GitHubProjects\Pacman\Pacman\Pacman\Pacman\Pacman\obj\x86\Debug\Pacman.exe
 C:\Users\Temp Admin\Desktop\GitHubProjects\Pacman\Pacman\Pacman\Pacman\Pacman\obj\x86\Debug\Pacman.pdb
+C:\Users\Temp Admin\Desktop\GitHubProjects\Pacman\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\PacmanText.xnb

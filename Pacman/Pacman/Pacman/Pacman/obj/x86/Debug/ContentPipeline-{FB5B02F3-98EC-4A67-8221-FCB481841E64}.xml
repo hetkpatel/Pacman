@@ -10,6 +10,15 @@
       <Output>C:\Users\Temp Admin\Desktop\GitHubProjects\Pacman\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\spritesheet.xnb</Output>
       <Time>2017-12-13T16:28:46.2515505-06:00</Time>
     </Item>
+    <Item>
+      <Source>PacmanText.spritefont</Source>
+      <Name>PacmanText</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Temp Admin\Desktop\GitHubProjects\Pacman\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\PacmanText.xnb</Output>
+      <Time>2017-12-14T20:38:27.3516647-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{FB5B02F3-98EC-4A67-8221-FCB481841E64}</ContentProjectGUID>
