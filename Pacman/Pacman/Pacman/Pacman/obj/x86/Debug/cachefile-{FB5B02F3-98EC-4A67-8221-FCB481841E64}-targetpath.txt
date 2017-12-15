@@ -1,2 +1,7 @@
 Content\spritesheet.xnb
 Content\PacmanText.xnb
+Content\8d82b5_Pacman_Eating_Cherry_Sound_Effect.xnb
+Content\8d82b5_Pacman_Extra_Live_Sound_Effect.xnb
+Content\8d82b5_Pacman_Opening_Song_Sound_Effect (1).xnb
+Content\8d82b5_Pacman_Siren_Sound_Effect.xnb
+Content\8d82b5_Pacman_Waka_Waka_Sound_Effect.xnb

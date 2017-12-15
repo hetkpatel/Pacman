@@ -71,6 +71,8 @@ namespace Pacman
         int points = 0;
         int timer = 0;
 
+        SoundEffect eatpellet;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -160,6 +162,7 @@ namespace Pacman
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            eatpellet = this.Content.Load<SoundEffect>("8d82b5_Pacman_Waka_Waka_Sound_Effect");
             for (int x = 0; x < GRID_SIZE[X]; x++)
                 for (int y = 0; y < GRID_SIZE[Y]; y++)
                 {
@@ -1184,6 +1187,8 @@ namespace Pacman
                 pellets[index, X] = pacmanPos[X];
                 pellets[index, Y] = pacmanPos[Y];
                 index++;
+
+                eatpellet.Play();
             }
         }
 

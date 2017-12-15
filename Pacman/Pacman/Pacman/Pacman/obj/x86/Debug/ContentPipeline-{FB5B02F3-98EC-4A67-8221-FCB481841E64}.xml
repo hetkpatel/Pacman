@@ -19,6 +19,51 @@
       <Output>C:\Users\145371\Desktop\Github\Pacman\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\PacmanText.xnb</Output>
       <Time>2017-12-15T08:40:21.0716457-06:00</Time>
     </Item>
+    <Item>
+      <Source>8d82b5_Pacman_Eating_Cherry_Sound_Effect.wav</Source>
+      <Name>8d82b5_Pacman_Eating_Cherry_Sound_Effect</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\145371\Desktop\Github\Pacman\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\8d82b5_Pacman_Eating_Cherry_Sound_Effect.xnb</Output>
+      <Time>2017-12-15T08:56:39.9387753-06:00</Time>
+    </Item>
+    <Item>
+      <Source>8d82b5_Pacman_Extra_Live_Sound_Effect.wav</Source>
+      <Name>8d82b5_Pacman_Extra_Live_Sound_Effect</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\145371\Desktop\Github\Pacman\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\8d82b5_Pacman_Extra_Live_Sound_Effect.xnb</Output>
+      <Time>2017-12-15T08:56:39.9543759-06:00</Time>
+    </Item>
+    <Item>
+      <Source>8d82b5_Pacman_Opening_Song_Sound_Effect (1).wav</Source>
+      <Name>8d82b5_Pacman_Opening_Song_Sound_Effect (1)</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\145371\Desktop\Github\Pacman\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\8d82b5_Pacman_Opening_Song_Sound_Effect (1).xnb</Output>
+      <Time>2017-12-15T08:56:40.0011777-06:00</Time>
+    </Item>
+    <Item>
+      <Source>8d82b5_Pacman_Siren_Sound_Effect.wav</Source>
+      <Name>8d82b5_Pacman_Siren_Sound_Effect</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\145371\Desktop\Github\Pacman\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\8d82b5_Pacman_Siren_Sound_Effect.xnb</Output>
+      <Time>2017-12-15T08:56:40.0167783-06:00</Time>
+    </Item>
+    <Item>
+      <Source>8d82b5_Pacman_Waka_Waka_Sound_Effect.wav</Source>
+      <Name>8d82b5_Pacman_Waka_Waka_Sound_Effect</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\145371\Desktop\Github\Pacman\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\8d82b5_Pacman_Waka_Waka_Sound_Effect.xnb</Output>
+      <Time>2017-12-15T08:56:40.0167783-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{FB5B02F3-98EC-4A67-8221-FCB481841E64}</ContentProjectGUID>

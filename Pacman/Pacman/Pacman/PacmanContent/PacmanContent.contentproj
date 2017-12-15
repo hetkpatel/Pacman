@@ -43,6 +43,33 @@
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="8d82b5_Pacman_Eating_Cherry_Sound_Effect.wav">
+      <Name>8d82b5_Pacman_Eating_Cherry_Sound_Effect</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="8d82b5_Pacman_Extra_Live_Sound_Effect.wav">
+      <Name>8d82b5_Pacman_Extra_Live_Sound_Effect</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="8d82b5_Pacman_Opening_Song_Sound_Effect %281%29.wav">
+      <Name>8d82b5_Pacman_Opening_Song_Sound_Effect %281%29</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="8d82b5_Pacman_Siren_Sound_Effect.wav">
+      <Name>8d82b5_Pacman_Siren_Sound_Effect</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="8d82b5_Pacman_Waka_Waka_Sound_Effect.wav">
+      <Name>8d82b5_Pacman_Waka_Waka_Sound_Effect</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -34,3 +34,8 @@ C:\Users\145371\Desktop\Github\Pacman\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\
 C:\Users\145371\Desktop\Github\Pacman\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
 C:\Users\145371\Desktop\Github\Pacman\Pacman\Pacman\Pacman\Pacman\obj\x86\Debug\Pacman.csprojResolveAssemblyReference.cache
 C:\Users\145371\Desktop\Github\Pacman\Pacman\Pacman\Pacman\Pacman\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\145371\Desktop\Github\Pacman\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\8d82b5_Pacman_Eating_Cherry_Sound_Effect.xnb
+C:\Users\145371\Desktop\Github\Pacman\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\8d82b5_Pacman_Extra_Live_Sound_Effect.xnb
+C:\Users\145371\Desktop\Github\Pacman\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\8d82b5_Pacman_Opening_Song_Sound_Effect (1).xnb
+C:\Users\145371\Desktop\Github\Pacman\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\8d82b5_Pacman_Siren_Sound_Effect.xnb
+C:\Users\145371\Desktop\Github\Pacman\Pacman\Pacman\Pacman\Pacman\bin\x86\Debug\Content\8d82b5_Pacman_Waka_Waka_Sound_Effect.xnb
